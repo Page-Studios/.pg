@@ -1,0 +1,10 @@
+store[type="Local"]: "idk" as idk
+print idk
+print "bro ${idk}"
+
+createFolder "API" // optional bc of this 
+                // |
+                // v
+cf test.txt in["test"] script: {
+this is a test bro
+}

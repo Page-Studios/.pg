@@ -1,0 +1,83 @@
+// .pg Example Script - Hello World
+// This script demonstrates all .pg language features
+
+// === Variables ===
+store[type="Local"]: "Hello" as greeting
+store[type="Local"]: "World" as target
+store[type="Local"]: 42 as answer
+store[type="Local"]: true as isAwesome
+
+print "=== .PG Language Demo ==="
+print ""
+
+// === String interpolation ===
+print "${greeting}, ${target}!"
+print "The answer is ${answer}"
+
+// === Arithmetic ===
+store[type="Local"]: 10 as a
+store[type="Local"]: 3 as b
+
+print ""
+print "=== Math ==="
+print "a + b = ${a + b}"
+print "a - b = ${a - b}"
+print "a * b = ${a * b}"
+print "a / b = ${a / b}"
+print "a % b = ${a % b}"
+
+// === Comparisons ===
+print ""
+print "=== Comparisons ==="
+print "a > b: ${a > b}"
+print "a == b: ${a == b}"
+print "a != b: ${a != b}"
+
+// === If / Else ===
+print ""
+print "=== Conditionals ==="
+if a > b {
+    print "a is greater than b"
+} else {
+    print "b is greater or equal"
+}
+
+// === While loop ===
+print ""
+print "=== While Loop ==="
+store[type="Local"]: 0 as i
+while i < 5 {
+    print "i = ${i}"
+    store[type="Local"]: i + 1 as i
+}
+
+// === String methods ===
+print ""
+print "=== String Methods ==="
+store[type="Local"]: "hello world" as msg
+print "Original: ${msg}"
+print "Upper: ${msg:Upper[]}"
+print "Length: ${msg:Length[]}"
+print "Contains 'world': ${msg:Contains[world]}"
+
+// === File operations ===
+print ""
+print "=== File Operations ==="
+createFolder "output"
+cf hello.txt in["output"] script: {
+    Hello from .pg!
+    This file was created by a .pg script.
+    Current line: 1
+}
+print "Created output/hello.txt"
+
+// === Server fetch ===
+print ""
+print "=== Server Fetch ==="
+store[type="FromServerToLocal"]: "https://httpbin.org/get" as serverData
+print "Fetched data (first 100 chars):"
+print "${serverData:Substr[100]}"
+
+// === Done ===
+print ""
+print "=== All done! ==="

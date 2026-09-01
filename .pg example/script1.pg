@@ -1,0 +1,24 @@
+-- Variables, storing idk as idk
+
+store[type="Local"]: "idk" as idk
+store[type="FromServerToLocal"]: "https://example.com/data.json" as data
+
+data:GetJSON[
+store[type="Local"]: {
+    data.Users.1.Username
+} as plrData
+]
+
+// Included librairys
+import[lib.Included.cpp-into-pg] // can create c++ files
+import[lib.Included.cs-into-pg]  // can create c# files
+import[lib.Included.WinForm] // make winform apps
+import[lib.Included.WPF] // make WPF apps
+
+createFolder "c++ Things"
+
+// cf = createFile
+cf Test.cpp in["/c++ Things"] script: {
+    // script 
+}
+
