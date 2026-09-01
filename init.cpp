@@ -13,10 +13,6 @@
 
 namespace fs = std::filesystem;
 
-// ═══════════════════════════════════════════════════════════════
-//  .PG Launcher v2.0
-// ═══════════════════════════════════════════════════════════════
-
 const std::string COMPILER      = "g++";
 const std::string INTERPRETER_SRC  = "dot.pg.cpp";
 const std::string INTERPRETER_EXE  = "dot.pg.exe";
